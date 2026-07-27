@@ -266,15 +266,17 @@
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-  /* Tarjeta exportable (fuera de pantalla) */
+  /* Tarjeta exportable (fuera de pantalla) — ancho tipo hoja A4 (210mm) */
   #export-card{
     position:fixed;
     left:-9999px;
     top:0;
-    width:640px;
+    width:794px;
+    min-height:1123px;
     background:var(--crema);
-    padding:40px;
+    padding:56px 60px;
     font-family:'Poppins',sans-serif;
+    box-sizing:border-box;
   }
   #export-card .ex-head{
     background:var(--violeta);
@@ -566,7 +568,7 @@
     exportCard.style.left = "0px";
     exportCard.style.top = "-99999px";
     await new Promise(r=>setTimeout(r,50));
-    const canvas = await html2canvas(exportCard, {backgroundColor:'#FAF8FF', scale:2});
+    const canvas = await html2canvas(exportCard, {backgroundColor:'#FAF8FF', scale:3});
     exportCard.style.left = "-9999px";
     exportCard.style.top = "0px";
 
